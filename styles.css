@@ -233,6 +233,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, 240px);
       gap: 26px;
+      margin-top: 20px;
       place-content: center;
     }
     .product-card {
