@@ -154,17 +154,11 @@
     }
   /* resposive zone*/
   @media (max-width: 640px) {
-    .menu {
+    .menu{
       display: block;
     }
-    .navbar-left ul {
+    .navbar-left ul, .navbar-email, .desktop-menu {
       display: none;
-    }
-    .navbar-email {
-      display: none;
-    }
-    .desktop-menu {
-        display:none;
     }
   }
   @media (min-width: 641px) {
