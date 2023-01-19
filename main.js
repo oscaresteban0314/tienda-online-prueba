@@ -1,13 +1,13 @@
 const nav_email = document.querySelector('.navbar-email');
 const desktop_menu = document.querySelector('.desktop-menu');
+const mobile_menu = document.querySelector('.menu_logo');
+const nav_menu = document.querySelector('.mobile-menu')
 nav_email.addEventListener('click', toogledeskpotmenu);
+mobile_menu.addEventListener('click', toogledeskpotmenumobile);
 
 function toogledeskpotmenu() {
-    /* if (desktop_menu.classList.contains('active')) {
-        desktop_menu.classList.remove('active');
-        desktop_menu.classList.add('inactive');
-    } else {
-        desktop_menu.classList.add('active');
-} */
-desktop_menu.classList.toggle('inactive');
+    desktop_menu.classList.toggle('inactive');
+}
+function toogledeskpotmenumobile() {
+    nav_menu.classList.toggle('inactive');
 }
