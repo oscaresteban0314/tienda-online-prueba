@@ -3,60 +3,68 @@ const desktop_menu = document.querySelector('.desktop-menu');
 const mobile_menu = document.querySelector('.menu_logo');
 const nav_menu = document.querySelector('.mobile-menu');
 const nav_carrito = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
-const cerrar_aside =document.querySelector('.cerrar_aside');
-const product_detail =document.querySelector('.product-detail-info');
+const shoping_card_container = document.querySelector('.product-detail');
+const cerrar_shoping_card_container =document.querySelector('.cerrar_shoping_card_container');
 const product_detail_close =document.querySelector('.product-detail-info-close');
 const cards_container = document.querySelector('.cards-container');
+const product_detail_info=document.querySelector('.product-detail-info');
 nav_email.addEventListener('click', toogledeskpotmenu);
-product_detail_close.addEventListener('click', toogleproduct_card);
-cerrar_aside.addEventListener('click', toogglecloseaside);
+shoping_card_container.addEventListener('click', toogleshoppingcart);
+product_detail_info.addEventListener('click', Open_Product_detail_info);
+product_detail_close.addEventListener('click', product_detail_close_function);
 mobile_menu.addEventListener('click', toogledeskpotmenumobile);
 nav_carrito.addEventListener('click', toogleshoppingcart);
 
+function product_detail_close_function(){
+    product_detail_info.classList.add('inactive');
+}
 function toogleproduct_card(){
-    console.log('holi');
-    product_detail.classList.toggle('inactive');
-    if (aside.classList.contains('inactive')){
+    product_detail_info.classList.toggle('inactive');
+    if (shoping_card_container.classList.contains('inactive')){
         return;
     }
     else{
-        aside.classList.add('inactive');
+        shoping_card_container.classList.add('inactive');
     }
 }
 function toogledeskpotmenu() {
     desktop_menu.classList.toggle('inactive');
-    if (aside.classList.contains('inactive')){
+    /* product_detail_info.classList.toggle('inactive'); */
+    if (shoping_card_container.classList.contains('inactive') && product_detail_info.classList.contains('inactive')){
         return;
     }
     else{
-        aside.classList.add('inactive');
+        shoping_card_container.classList.add('inactive');
+        product_detail_info.classList.add('inactive');
     }
 }
 
-function toogglecloseaside() {
-    aside.classList.toggle('inactive');
-    
-}
 function toogledeskpotmenumobile() {
     nav_menu.classList.toggle('inactive');
-    if (aside.classList.contains('inactive')){
+    if (shoping_card_container.classList.contains('inactive')&& product_detail_info.classList.contains('inactive')){
         return;
     }
     else{
-        aside.classList.add('inactive');
+        shoping_card_container.classList.add('inactive');
+        
+        product_detail_info.classList.add('inactive');
     }
 }
 function toogleshoppingcart() {
-    console.log('holi');
-    aside.classList.toggle('inactive');
-    if (nav_menu.classList.contains('inactive') && product_detail.classList.contains('inactive') ){
+    shoping_card_container.classList.toggle('inactive');
+    if (nav_menu.classList.contains('inactive') && product_detail_info.classList.contains('inactive') ){
         return;
     }
     else{
         nav_menu.classList.add('inactive');
-        product_detail.classList.add('inactive');
+        product_detail_info.classList.add('inactive');
     }
+}
+function Open_Product_detail_info(){
+    product_detail_info.classList.remove('inactive');
+    shoping_card_container.classList.add('inactive');
+    nav_menu.classList.add('inactive');
+    desktop_menu.classList.add('inactive');
 }
 const product_list=[];
 
@@ -73,6 +81,7 @@ for (product of product_list) {
     product_card_index.classList.add('product-card');
     const img_product = document.createElement("img");//okey
     img_product.setAttribute('src', product.Image);//okey
+    img_product.addEventListener('click',Open_Product_detail_info);
     const product_info = document.createElement("div");//okey
     product_info.classList.add('product-info');//okey
     const div_info = document.createElement("div");//okey
